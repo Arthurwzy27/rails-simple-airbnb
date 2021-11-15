@@ -27,11 +27,27 @@
   </div>
 </div>
 
-<div class="container">
-  <% @flats.each do |flat| %>
-  <h1> <%= flat.name %> </h1>
-  <p> <%= flat.address %> </p>
-  <p> <%= flat.price_per_night %> </p>
-  <p> <%= flat.number_of_guests %> </p>
-  <% end %>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Check our top flats</h3>
+  </div>
+
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="co-12 colsm-6 col-md-4">
+        <%= link_to flat_path(flat), class:'text-decoration-none' do %>
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" class="card-img-top" alt="...">
+          <div class="card-category">
+            <div class="card" style="width: 18rem;">
+              <div class="card-body">
+                <p class="card-text"><%= flat.name %></p>
+                <h2 class="card-trip-pricing"><%= flat.price_per_night %> €</h2>
+                <p> <%= flat.number_of_guests %> guests</p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
